@@ -1,0 +1,147 @@
+/*------------------------------------------------------------------------------------------------------------------------
+ @package: clevercode
+
+ @author: André Aubin
+ @www: www.lambdaweb.fr
+
+ @copyright: COPYRIGHT 25 André Aubin
+ @license: MIT
+
+ =============================================================================
+ Filename: main.css
+ =============================================================================
+ This file is responsible for all styles on the clevercode app.
+ --------------------------------------------------------------------------------------------------------------------- */
+
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700|Fredoka+One|Leckerli+One");
+@import url("http://fonts.googleapis.com/css?family=Patua+One");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400");
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans+Mono");
+
+
+*
+{
+	box-sizing: border-box;
+}
+
+body
+{
+	background-color: rgba(0, 0, 0, 0.03);
+    font-family: 'Lato', sans-serif;
+}
+
+pre
+{
+    font-size: 0.9em;
+}
+
+pre,
+code
+{
+    font-family: 'Droid Sans Mono', sans-serif;
+}
+
+.row
+{
+	vertical-align: top;
+	display: flex;
+	align-items: stretch;
+	transition: all 0.3s;
+	-webkit-flex-flow: row wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+
+	.row-comment
+	{
+		display: inline-block;
+		transition: all 0.3s;
+		min-width: 25%;
+		max-width: 30%;
+		color: rgba(0, 0, 0, 0.5);
+		vertical-align: top;
+		word-wrap: break-word;
+  		margin: auto;
+  		opacity: 0.5;
+
+  		&:only-child
+  		{
+			max-width: 100%;
+			display: block;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+  			flex: 1 100%;
+  			text-align: center;
+  			border-radius: 3px;
+  		}
+
+  		.annotation
+  		{
+  			padding: 5px;
+  			background-color: rgba(0, 0, 0, 0.03);
+
+  			.annotation-key
+  			{
+				color: rgba(0, 0, 0, 0.5);
+				font-weight: bold;
+
+				[class^="icon-"]
+				{
+					color: rgba(0, 0, 0, 0.2);
+					position: relative;
+					top: 2px;
+					font-size: 0.9em;
+					margin-right: 3px;
+				}
+  			}
+
+  			.annotation-value
+  			{
+				color: rgba(0, 0, 0, 0.4);
+  			}
+  		}
+
+	}
+
+	.row-source
+	{
+		display: inline-block;
+		min-width: 60%;
+		width: 60%;
+		max-width: 69%;
+		padding-top: 0px;
+		padding-bottom: 20px;
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		transition: all 0.3s;
+		vertical-align: top;
+		font-family: monospace, serif;
+		border-left: 1px solid rgba(0, 0, 0, 0.1);
+  		margin: auto;
+
+  		&:only-child
+  		{
+			width: 100%;
+			margin-left: 38%;
+			display: block;
+			border: none;
+  		}
+	}
+
+
+	&:hover
+	{
+
+		.row-comment
+		{
+			color: rgba(0, 0, 0, 0.8);
+  			opacity: 1;
+		}
+
+		.row-source:not(:only-child)
+		{
+			transition: all 0.3s;
+			border-left: 1px solid rgba(0, 0, 0, 0.2);
+			box-shadow: -5px 0px 20px -5px rgba(0, 0, 0, 0.3);
+		}
+	}
+}

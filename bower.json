@@ -1,0 +1,27 @@
+{
+	"name":         "mantajs",
+	"version":      "0.0.1",
+	"authors": [
+		"André Aubin<andre.aubin@lambdaweb.fr>"
+	],
+	"description": "A simple generation tool",
+	"main":        "app/index.html",
+	"keywords":    [
+		"presentation"
+	],
+	"license":     "MIT",
+	"homepage":    "www.lambdaweb.fr",
+	"ignore":      [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"app/bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"jquery": "*",
+		"modernizr": "*"
+	}
+}
+

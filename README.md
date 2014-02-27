@@ -1,4 +1,2 @@
-mantajs
-=======
-
-A simple presentation wrapper
+Manta
+==========
