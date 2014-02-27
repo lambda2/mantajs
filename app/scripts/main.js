@@ -1,6 +1,6 @@
 
 /**
- * Définition de l'objet CleverCodeParser
+ * Définition de l'objet MantaParser
  */
 (function()
 {
@@ -8,7 +8,7 @@
      * Constructeur
      * @param {jquery object} data the dom element to parse
      */
-    function	CleverCodeParser(data, target)
+    function	MantaParser(data, target)
     {
         this.source = data;
         this.dest = target;
@@ -19,10 +19,10 @@
             this.lang = $(this.source).attr("data-language") || "php";
         }
 
-        if (_.has(CleverCode.definitions, this.lang))
+        if (_.has(Manta.definitions, this.lang))
         {
             console.log("Definitions found for [" + this.lang + "]");
-            this.definition = CleverCode.definitions[this.lang];
+            this.definition = Manta.definitions[this.lang];
 
             if (typeof(this.source) == "object")
             {
@@ -106,11 +106,11 @@
         }
     };
 
-    CleverCodeParser.prototype.cleanString = function(str) {
+    MantaParser.prototype.cleanString = function(str) {
         var reg = new RegExp();
-        console.log(CleverCode.annotations);
+        console.log(Manta.annotations);
 
-        _.each(CleverCode.annotations, function(val)
+        _.each(Manta.annotations, function(val)
         {
             var annotTemplate = "<p class='annotation'>\
                                 <span class='annotation-key'>\
@@ -138,7 +138,7 @@
         return (str.replace(/[=|-|~]{5,}/, ""));
     };
 
-    CleverCodeParser.prototype.getInnerBracesEnd = function(text)
+    MantaParser.prototype.getInnerBracesEnd = function(text)
     {
         console.log("searching into ", text);
         var open = this.definition.blockDelimiter.start;
@@ -166,7 +166,7 @@
     };
 
 
-    CleverCodeParser.prototype.cleanArray = function(arr) {
+    MantaParser.prototype.cleanArray = function(arr) {
         var cleanRegex = /\S|\n/;
         var cleaned = _.reject(arr, function(e){
             return (e == undefined || e.match(cleanRegex) == null);
@@ -174,27 +174,27 @@
         return (cleaned);
     };
 
-    CleverCodeParser.prototype.cleanComment = function(comment) {
+    MantaParser.prototype.cleanComment = function(comment) {
         var withoutAst = comment.replace(this.definition.commentBlockDelimiters, "");
         withoutAst = withoutAst.replace(/^[\s]*/gm, "");
         return (withoutAst);
     };
 
-    CleverCodeParser.prototype.getSingleCodeTemplate = function(data) {
+    MantaParser.prototype.getSingleCodeTemplate = function(data) {
         var template = "<div class='row'>\
                             <div class='row-source language-<%= lang %>'><%= source %></div>\
                         </div>";
         return (_.template(template)(data));
     };
 
-    CleverCodeParser.prototype.getSingleRowTemplate = function(data) {
+    MantaParser.prototype.getSingleRowTemplate = function(data) {
         var template = "<div class='row'>\
                             <div class='row-comment'><%= comment %></div>\
                         </div>";
         return (_.template(template)(data));
     };
 
-    CleverCodeParser.prototype.getRowTemplate = function(data) {
+    MantaParser.prototype.getRowTemplate = function(data) {
         var template = "<div class='row'>\
                             <div class='row-comment'><%= comment %></div>\
                             <div class='row-source language-<%= lang %>'><%= source %></div>\
@@ -202,7 +202,7 @@
         return (_.template(template)(data));
     };
 
-    window.CleverCodeParser = CleverCodeParser;
+    window.MantaParser = MantaParser;
 
 })();
 

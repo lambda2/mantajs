@@ -5,8 +5,7 @@ var	base_js = "app/scripts/";
 var	js_src_order =
 [
 	base_js + "vendor/*.js",
-	base_js + "definitions/base.js",
-	base_js + "definitions/php.js",
+	base_js + "core/*.js",
 	base_js + "plugins.js",
 	base_js + "main.js"
 ]
@@ -19,7 +18,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		// Metadata.
 		pkg: grunt.file.readJSON('package.json'),
-		banner: "/* CLEVERCODE */\n",//grunt.file.read('muffin.banner'),
+		banner: "/* Manta */\n",//grunt.file.read('muffin.banner'),
 		// Task configuration.
 		clean: {
 			files: ['dist']

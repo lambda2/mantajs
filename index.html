@@ -9,7 +9,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/clevercode.css">
+    <link rel="stylesheet" href="css/Manta.css">
 </head>
 <body>
     <!--[if lt IE 7]>
@@ -17,13 +17,8 @@
     <![endif]-->
     <div class="header-container">
         <header class="wrapper clearfix">
-            <h1 class="title">CleverCode</h1>
+            <h1 class="title">Manta</h1>
         </header>
-        <nav>
-            <input type="search" id="search-input"
-                    placeholder="load GitHub file...">
-            <button type="button">search</button>
-        </nav>
     </div>
     <div class="main-container">
         <div class="main wrapper clearfix">
@@ -38,37 +33,19 @@
             </div> <!-- #main-container -->
             <div class="footer-container">
                 <footer class="wrapper">
-                    <h3>footer</h3>
+                    <!-- <h3>footer</h3> -->
                 </footer>
             </div>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
             <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-            <script src="js/clevercode.js" data-manual></script>
+            <script src="js/Manta.js" data-manual></script>
             <script>
 
-            $("#search-input + button").click(function()
-            {
-                console.log("submit !");
-                var target = $("[data-code-target]").first();
-                var gh = $("#search-input").val();
-                $.getJSON('https://api.github.com/repos/wearemuffin/Muffin/contents/' + gh, function(json, textStatus) {
-                        console.log(json);
-                        var content = atob(json.content);
-                        console.log(content);
-                        var c = new CleverCodeParser(content, target);
-                });
-            });
-
-/*
             $(document).ready(function()
             {
-                var target = $("[data-code-target]").first();
-                $("[data-language]").each(function()
-                {
-                    var c = new CleverCodeParser($(this), target);
-                });
-                //Prism.highlightAll();
-            });*/
+                var e = new Manta({lol: "ok", slides: ["hello", "world"]});
+                e.toString();
+            });
 
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
